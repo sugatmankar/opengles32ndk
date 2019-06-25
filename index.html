@@ -1,0 +1,390 @@
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<div style="text-align: center;">
+<br /></div>
+<div style="text-align: center;">
+<span style="font-size: large;"><b>OpenGL ES 3.2</b></span></div>
+<div style="text-align: center;">
+<span style="font-size: large;"><br /></span></div>
+<div style="text-align: center;">
+<span style="font-size: large;"><b>Android NDK</b></span></div>
+<div style="text-align: center;">
+<span style="font-size: large;"><b></b>Step By Step</span></div>
+<div style="text-align: center;">
+<span style="font-size: large;"><br /></span></div>
+<div style="text-align: center;">
+<br /></div>
+<div style="text-align: center;">
+<span style="font-size: large;"><br /></span></div>
+<div style="text-align: center;">
+<span style="font-size: large;">Dedicated to Hard Work of guruji</span><br />
+<br /></div>
+<div style="text-align: center;">
+<span style="font-size: large;"><b>Dr. Vijay D. Gokhale</b></span></div>
+<div style="text-align: center;">
+<span style="font-size: large;"><a href="http://astromedicomp.org/">Astromedicomp</a></span></div>
+<div style="text-align: center;">
+<br /></div>
+<div style="text-align: center;">
+He taught ABCD of Computer from 0 1 to Level that i can't express..<br />
+.....this dots i'm limiting for short writing but he has no limit..you can put whatever term of computer , medical you get in your mind<br />
+<br />
+A - Assembly, ACPI, Android, Apples cult..<br />
+B - Bit,Byte, Boot Loader, BIOS..<br />
+C - CPU, C of Dennis Ritchie, C++ of Bjarne Stroustrup, COM, Command Line..<br />
+D - DirectX, Device Drivers, DCOM, Depth of Computer, Depth of Medical , Depth of every single field..<br />
+E - Embedded Systems Intel ..ARM..<br />
+F - FrameBuffer...Fragment Shader..<br />
+G- GRAPHICS anything of this,GPGPU, Geometry Shader...<br />
+H - HAL, Hull shader..<br />
+I - INODE..<br />
+J - JNI..<br />
+K - Kernel, Kundali...<br />
+L - Light what light is, Linux, LKD, LSP<br />
+M - Marshaling (COM)...Metal ..<br />
+N - NDK...<br />
+O -&nbsp; OpenGL, Offline Rendering (RenderMan , Maya..)<br />
+P - Pixel..<br />
+Q - QueryInterface<br />
+R - Real Time Rendering, Ray Tracing...<br />
+S - Sub Surface Catering..<br />
+T -&nbsp; Tesselation shader..<br />
+U - UNIX mother of all OS..<br />
+V - Vulkan, Volume Rendering, Voxel ..<br />
+W - Win32, WinRT, WebGL...<br />
+Z - Zygot, Z - Buffer ..<br />
+<br />
+<br />
+All this technical blog because of his hard work<br />
+Hope you will enjoy..<br />
+Sugat Mankar<br />
+<br />
+<br /></div>
+<div style="text-align: center;">
+<br /></div>
+<span style="font-size: large;"><b>0. Pre-requisite:&nbsp;</b></span><br />
+<br />
+<ul style="text-align: left;">
+<li><span style="font-size: large;"><b><a href="https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html">JNI : You must know Java Native Interface</a></b></span></li>
+<li><span style="font-size: large;"><b>OpenGL Programmable Pipeline&nbsp;</b></span></li>
+</ul>
+<br />
+Reference for JNI study:<br />
+<br />
+<ul style="text-align: left;">
+<li><span style="background-color: white; font-family: &quot;Segoe UI&quot;, Segoe, Calibri, &quot;Nimbus Sans L&quot;, Ubuntu, Tahoma, Arial, Helvetica, Verdana, sans-serif; font-size: 14px; text-align: justify;"><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jni/index.html">Java Native Interface Specification</a></span></li>
+<li><span style="background-color: white; font-family: &quot;Segoe UI&quot;, Segoe, Calibri, &quot;Nimbus Sans L&quot;, Ubuntu, Tahoma, Arial, Helvetica, Verdana, sans-serif; font-size: 14px; text-align: justify;"><a href="http://en.wikipedia.org/wiki/Java_Native_Interface">Wiki "Java Native Interface"</a></span></li>
+<li><a href="https://www.amazon.in/Java-Native-Interface-Programmers-Specification/dp/0201325772/ref=olp_product_details?_encoding=UTF8&amp;me=">The Java Native Interface: Programmer's Guide and Specification (The Java Series) By Sheng Liang</a></li>
+<li><a href="https://developer.android.com/training/articles/perf-jni">JNI tips by Android Developer Guide</a></li>
+</ul>
+Reference for OpenGL study:&nbsp;<div>
+<ul style="text-align: left;">
+<li><a href="http://astromedicomp.org/">Astromedicomp RTR batch</a>&nbsp;</li>
+<li>OpenGL Superbible: Comprehensive Tutorial and Reference</li>
+<li><h2 class="a-size-mini a-spacing-none a-color-base s-line-clamp-2" style="-webkit-box-orient: vertical; -webkit-line-clamp: 2; background-color: white; box-sizing: border-box; color: #111111; display: -webkit-box; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; line-height: 1.465 !important; margin-bottom: 0px !important; margin-left: 0px; margin-right: 0px; margin-top: 0px; max-height: 42.67px; overflow: hidden; padding: 0px; text-overflow: ellipsis; text-rendering: optimizelegibility;">
+<span class="a-size-medium a-color-base a-text-normal" style="box-sizing: border-box; font-weight: 400 !important; line-height: 1.255 !important; text-rendering: optimizelegibility;"><a class="a-link-normal a-text-normal" href="https://www.amazon.in/OpenGL-Programming-Guide-Official-Learning/dp/0134495497/ref=sr_1_7?keywords=opengl&amp;qid=1561376741&amp;s=books&amp;sr=1-7" style="box-sizing: border-box; color: #0066c0; text-decoration-line: none;" target="_blank"><span style="font-size: small;">OpenGL Programming Guide: The Official Guide to Learning OpenGL</span></a></span></h2>
+</li>
+<li><h2 class="a-size-mini a-spacing-none a-color-base s-line-clamp-2" style="-webkit-box-orient: vertical; -webkit-line-clamp: 2; background-color: white; box-sizing: border-box; color: #111111; display: -webkit-box; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; line-height: 1.465 !important; margin-bottom: 0px !important; margin-left: 0px; margin-right: 0px; margin-top: 0px; max-height: 42.67px; overflow: hidden; padding: 0px; text-overflow: ellipsis; text-rendering: optimizelegibility;">
+<span class="a-size-medium a-color-base a-text-normal" style="box-sizing: border-box; color: #c45500; cursor: pointer; font-weight: 400 !important; line-height: 1.255 !important; outline: 0px; text-decoration-line: none !important; text-rendering: optimizelegibility;"><a class="a-link-normal a-text-normal" href="https://www.amazon.in/OpenGL-Shading-Language-Randi-Rost/dp/0321637631/ref=sr_1_4?keywords=opengl&amp;qid=1561376741&amp;s=books&amp;sr=1-4" style="box-sizing: border-box; color: #c45500; cursor: pointer; font-weight: 400 !important; outline: 0px;" target="_blank"><span style="font-size: small;">OpenGL Shading Language</span></a></span></h2>
+</li>
+<li><h2 class="a-size-mini a-spacing-none a-color-base s-line-clamp-2" style="-webkit-box-orient: vertical; -webkit-line-clamp: 2; background-color: white; box-sizing: border-box; color: #111111; display: -webkit-box; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; line-height: 1.465 !important; margin-bottom: 0px !important; margin-left: 0px; margin-right: 0px; margin-top: 0px; max-height: 42.67px; overflow: hidden; padding: 0px; text-overflow: ellipsis; text-rendering: optimizelegibility;">
+<span style="font-size: small;"><span class="a-size-medium a-color-base a-text-normal" style="box-sizing: border-box; color: rgb(17, 17, 17) !important; font-weight: 400 !important; line-height: 1.255 !important; text-decoration-line: none; text-rendering: optimizelegibility;"><a class="a-link-normal a-text-normal" href="https://www.amazon.in/OpenGL-ES-3-0-Programming-Guide/dp/933253909X/ref=sr_1_1?keywords=opengl+es&amp;qid=1561376840&amp;s=books&amp;sr=1-1" style="box-sizing: border-box; color: #0066c0; font-weight: 400 !important; text-decoration-line: none;" target="_blank">OpenGL ES 3.0 Programming Guide, 2e</a>&nbsp;</span>by&nbsp;<span class="a-size-base" style="box-sizing: border-box; color: #555555; line-height: 19px !important;">Ginsburg</span></span></h2>
+</li>
+<li><h2 class="a-size-mini a-spacing-none a-color-base s-line-clamp-2" style="-webkit-box-orient: vertical; -webkit-line-clamp: 2; background-color: white; box-sizing: border-box; color: #111111; display: -webkit-box; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; line-height: 1.465 !important; margin-bottom: 0px !important; margin-left: 0px; margin-right: 0px; margin-top: 0px; max-height: 42.67px; overflow: hidden; padding: 0px; text-overflow: ellipsis; text-rendering: optimizelegibility;">
+<span class="a-size-medium a-color-base a-text-normal" style="box-sizing: border-box; color: rgb(17, 17, 17) !important; font-weight: 400 !important; line-height: 1.255 !important; text-decoration-line: none; text-rendering: optimizelegibility;"><span style="font-size: small;"><a class="a-link-normal a-text-normal" href="https://www.amazon.in/Computer-Graphics-Through-OpenGL-Experiments/dp/1482258390/ref=sr_1_15?keywords=opengl&amp;qid=1561376741&amp;s=books&amp;sr=1-15" style="box-sizing: border-box; color: #0066c0; font-weight: 400 !important; text-decoration-line: none;" target="_blank">Computer Graphics Through OpenGL: From Theory to Experiments</a>&nbsp;</span></span><a class="a-size-base a-link-normal" href="https://www.amazon.in/Sumanta-Guha/e/B003YLKHKA?ref=sr_ntt_srch_lnk_15&amp;qid=1561376741&amp;sr=1-15" style="box-sizing: border-box; color: #c45500; cursor: pointer; font-size: medium; font-weight: 400; line-height: 19px !important; outline: 0px;">Sumanta Guha</a></h2>
+</li>
+<li><div class="a-row a-size-base a-color-secondary" style="box-sizing: border-box; font-weight: 400; line-height: 19px !important; width: 788.563px;">
+<span class="a-size-medium a-color-base a-text-normal" style="box-sizing: border-box; line-height: 1.255 !important; text-decoration-line: none; text-rendering: optimizelegibility;"><span style="font-size: small;"><a class="a-link-normal a-text-normal" href="https://www.amazon.in/OpenGL-Insights-Webgl-Community-Experiences/dp/1439893764/ref=sr_1_21?keywords=opengl&amp;qid=1561376818&amp;s=books&amp;sr=1-21" style="box-sizing: border-box; color: #0066c0; text-decoration-line: none;" target="_blank">OpenGL Insights (OpenGL, OpenGL Es, and Webgl Community Experiences)</a><span style="color: #555555;">&nbsp;</span></span></span><a class="a-size-base a-link-normal" href="https://www.amazon.in/Patrick-Cozzi/e/B004LGLPIA?ref=sr_ntt_srch_lnk_21&amp;qid=1561376818&amp;sr=1-21" style="box-sizing: border-box; color: #0066c0; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; line-height: 19px !important; text-decoration-line: none;">Patrick Cozzi&nbsp;</a><span class="a-size-base" style="box-sizing: border-box; color: rgb(85, 85, 85) !important; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; line-height: 19px !important;">and&nbsp;</span><a class="a-size-base a-link-normal" href="https://www.amazon.in/Christophe-Riccio/e/B00640JC72?ref=sr_ntt_srch_lnk_21&amp;qid=1561376818&amp;sr=1-21" style="box-sizing: border-box; color: #0066c0; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; line-height: 19px !important; text-decoration-line: none;">Christophe Riccio&nbsp;</a></div>
+</li>
+<li><div class="a-row a-size-base a-color-secondary" style="box-sizing: border-box; font-weight: 400; line-height: 19px !important; width: 788.563px;">
+<a href="https://learnopengl.com/">LearnOpenGL.com</a></div>
+</li>
+</ul>
+<br />
+<span style="text-align: justify;"></span><br />
+<div style="text-align: center;">
+<span style="text-align: justify;"><b><span style="font-size: large;"><br /></span></b></span></div>
+<span style="text-align: justify;">
+</span>
+<div style="text-align: left;">
+<span style="text-align: justify;"><b><span style="font-size: large;">1. Setting up and running environment</span></b></span></div>
+<span style="text-align: justify;">
+<div style="text-align: center;">
+<br /></div>
+<div style="text-align: justify;">
+1. Download and Install Android Studio&nbsp;</div>
+<div style="text-align: justify;">
+2. Follow Getting started with the <a href="https://developer.android.com/ndk/guides">NDK guide provided at developers.android.com&nbsp;</a></div>
+<div style="text-align: justify;">
+3.&nbsp;Download the NDK and Tools most important below components must be installed successfully</div>
+<div style="text-align: justify;">
+</div>
+<div style="text-align: justify;">
+<div>
+<ul>
+<li><div>
+LLDB</div>
+</li>
+<li><div>
+CMake</div>
+</li>
+<li><div>
+NDK</div>
+</li>
+<li><div>
+NDK (Side by Side) - Optional&nbsp;</div>
+</li>
+</ul>
+4. Environment variable setup</div>
+<div>
+&nbsp; &nbsp; ANDROID_HOME =&nbsp;C:\Users\&lt;USERNAME&gt;\AppData\Local\Android\Sdk\</div>
+<div>
+&nbsp; &nbsp; PATH += C:\Users\&lt;USERNAME&gt;\AppData\Local\Android\Sdk\platform-tools<br /><ul>
+</ul>
+&nbsp; &nbsp;</div>
+<div>
+<b style="text-align: center;"><span style="font-size: large;">2.&nbsp;</span></b><b><span style="font-size: large;">Creating First NDK project</span></b></div>
+</div>
+</span><br />
+<ol style="text-align: left;">
+<li>File&nbsp; -&gt; Create New Project -&gt;&nbsp; In 'Phone And Tablet' Tab Scroll Down&nbsp;-&gt; Native C++ -&gt; Next</li>
+<li>Enter details&nbsp;</li>
+<ol>
+<li>Name: HelloNDK</li>
+<li>PackageName</li>
+<li>Save Project Location</li>
+<li>Language</li>
+<li>Minimum level as per your requirement</li>
+</ol>
+</ol>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div>
+<br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-tSZFeT3bTUg/XRCkd4lJ5zI/AAAAAAAABL8/Wc34Rzdx_PcDUDoSy-q_KlaY_icwdbvOQCLcBGAs/s1600/Step%2B1.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="737" data-original-width="907" height="518" src="https://1.bp.blogspot.com/-tSZFeT3bTUg/XRCkd4lJ5zI/AAAAAAAABL8/Wc34Rzdx_PcDUDoSy-q_KlaY_icwdbvOQCLcBGAs/s640/Step%2B1.PNG" width="640" /></a></div>
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Next</div>
+<div>
+<br /></div>
+<div>
+3. C++ Standard : Toolchain Default</div>
+<div>
+<br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-a8jqLnVWK20/XRClIEAEN3I/AAAAAAAABMQ/XvzrsDbQQd8YloPrKpGXku3hV3WMnxmmACLcBGAs/s1600/Step%2B2.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="729" data-original-width="902" height="515" src="https://1.bp.blogspot.com/-a8jqLnVWK20/XRClIEAEN3I/AAAAAAAABMQ/XvzrsDbQQd8YloPrKpGXku3hV3WMnxmmACLcBGAs/s640/Step%2B2.PNG" width="640" /></a></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Finish</div>
+<div>
+<br /></div>
+<div>
+You must have active internet connection.</div>
+<div>
+If gradle build failed or CMake is not found in PATH click on Install CMake &lt;version&gt; link shown at left bottom of IDE. Install and Finish.<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-rMjRZ-Y3_Qc/XRClwrVhNRI/AAAAAAAABMY/M_C2ybk7L4YMZNAEo_p8UUwYg5SGbVVpgCLcBGAs/s1600/Step%2B3.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="712" data-original-width="1600" height="283" src="https://1.bp.blogspot.com/-rMjRZ-Y3_Qc/XRClwrVhNRI/AAAAAAAABMY/M_C2ybk7L4YMZNAEo_p8UUwYg5SGbVVpgCLcBGAs/s640/Step%2B3.PNG" width="640" /></a></div>
+</div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+It will start Load Build, Configure Build by required Gradle packages.</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-8Rn5T_EtAtE/XRCmn1hnBwI/AAAAAAAABMs/Dj9x_hje-DYLaDUNG31hRuKn6mMOk4ASwCLcBGAs/s1600/Step%2B4.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="294" data-original-width="1600" height="116" src="https://1.bp.blogspot.com/-8Rn5T_EtAtE/XRCmn1hnBwI/AAAAAAAABMs/Dj9x_hje-DYLaDUNG31hRuKn6mMOk4ASwCLcBGAs/s640/Step%2B4.PNG" width="640" /></a></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Make sure everything is successfully done.</div>
+<div>
+<br /></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-I8lERb7U4PE/XRCnPFirQOI/AAAAAAAABM0/3VYI6IsVySkZHRd2cRX8vIDAd5PJ4iFVQCLcBGAs/s1600/Step%2B5.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="858" data-original-width="1600" height="342" src="https://1.bp.blogspot.com/-I8lERb7U4PE/XRCnPFirQOI/AAAAAAAABM0/3VYI6IsVySkZHRd2cRX8vIDAd5PJ4iFVQCLcBGAs/s640/Step%2B5.PNG" width="640" /></a></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Deploy apk to Mobile<br />
+1. IDE way :<br />
+<br />
+<ul style="text-align: left;">
+<li>Build Menu - &gt; Make Project</li>
+<li>Run -&gt;&nbsp; &nbsp; &nbsp;Run App -&gt; Select Deployment Target - &gt; Connected Devices -&gt; OK</li>
+</ul>
+2. Command Line way:<br />
+<br />
+<ul style="text-align: left;">
+<li>Open CMD and cd to project root directory</li>
+<li>gradlew clean</li>
+<li>gradlew build</li>
+<li>adb -d install -r app/build/outputs/apk/debug/app-debug.apk</li>
+</ul>
+<br />
+<br /></div>
+<div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-IzZUngp8nkg/XRC0Veq-W5I/AAAAAAAABNU/KGhwAVuiCNgzcbC2s_BFpqQpTfZmp_y2wCLcBGAs/s1600/Step%2B6.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="967" data-original-width="448" height="640" src="https://1.bp.blogspot.com/-IzZUngp8nkg/XRC0Veq-W5I/AAAAAAAABNU/KGhwAVuiCNgzcbC2s_BFpqQpTfZmp_y2wCLcBGAs/s640/Step%2B6.PNG" width="296" /></a></div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<b style="text-align: center;"><span style="font-size: large;">3.&nbsp;</span></b><b style="text-align: justify;"><span style="font-size: large;">Understanding Build System</span></b><br />
+<b style="text-align: justify;"><span style="font-size: large;"><br /></span></b></div>
+<div>
+Android Developer Guide has provided plenty of information about entire build system, how does android build system works, have a look at developers guide. Here i'm just explaining wrt NDK's perspective.<br />
+<br /></div>
+<div>
+In your project structure you will find two build.gradle files, one is in project root directory and another is in project/app/ directory. For compilation of C C++ native code android has used CMake build system, hence you will find externalNativeBuild block in app/build.gradle file with path of CMake file, this is very important for us to add classes we have/will written/write in C CPP as well as when we will add external libraries like freetype for font rendering.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-5ERixsdBdSM/XRHh3bKv4LI/AAAAAAAABNw/sSOk7QJISs0Rdz0EXBLQeEMeYGeQ-NPGgCLcBGAs/s1600/Step%2B7.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="151" data-original-width="533" height="180" src="https://1.bp.blogspot.com/-5ERixsdBdSM/XRHh3bKv4LI/AAAAAAAABNw/sSOk7QJISs0Rdz0EXBLQeEMeYGeQ-NPGgCLcBGAs/s640/Step%2B7.PNG" width="640" /></a></div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+By default project structure generated one cpp folder under that you will find includes , CMakelist.txt and native-lib.cpp file</div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-TPXQPJqkLiU/XRHiWCPEa-I/AAAAAAAABN4/-srQie2tAgsp8AFbAKQ1PM5Zmhn7NUjDACLcBGAs/s1600/Step%2B8.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="843" data-original-width="1518" height="354" src="https://1.bp.blogspot.com/-TPXQPJqkLiU/XRHiWCPEa-I/AAAAAAAABN4/-srQie2tAgsp8AFbAKQ1PM5Zmhn7NUjDACLcBGAs/s640/Step%2B8.PNG" width="640" /></a></div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Lets understand flow of default program and later we will add some more example<br />
+<br />
+<br /></div>
+<div>
+In MainActivity -&gt; tv.setText(StringFromJNI()) stringfromjni function will be called as it is native mark it will look for function definition in cpp file&nbsp;</div>
+<div>
+<br /></div>
+<div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-R0DenGuENGI/XRHi3S_2bcI/AAAAAAAABOE/2c7xqsWlVdIrCi_dBo9qgUExeGLUAxQlgCLcBGAs/s1600/Step%2B9.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="722" data-original-width="1430" height="322" src="https://1.bp.blogspot.com/-R0DenGuENGI/XRHi3S_2bcI/AAAAAAAABOE/2c7xqsWlVdIrCi_dBo9qgUExeGLUAxQlgCLcBGAs/s640/Step%2B9.PNG" width="640" /></a></div>
+<br /></div>
+<div>
+now control is in cpp files implementation of StringFromJNI method<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-9JXxZfYbcls/XRHjh6-eZ4I/AAAAAAAABOM/A9cyGUQOaTEPcAshALTTCeP-FxqSoZmrACLcBGAs/s1600/Step%2B10.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="514" data-original-width="1552" height="210" src="https://1.bp.blogspot.com/-9JXxZfYbcls/XRHjh6-eZ4I/AAAAAAAABOM/A9cyGUQOaTEPcAshALTTCeP-FxqSoZmrACLcBGAs/s640/Step%2B10.PNG" width="640" /></a></div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Lets write some more basic fundamental data type return from cpp to java<br />
+<br />
+Just remember basic types in jni<br />
+<br />
+<pre class="color-syntax" style="background-color: #cceef1; border: 2px solid rgb(248, 248, 248); font-family: Consolas, &quot;DejaVu Sans Mono&quot;, &quot;Lucida Console&quot;, &quot;Courier New&quot;, Courier, monospace; font-size: 13px; line-height: 17.55px; margin-bottom: 8px; margin-top: 5px; padding: 5px 10px; text-align: justify;">typedef long            jint;
+typedef __int64         jlong;
+typedef signed char     jbyte;
+
+typedef unsigned char   jboolean;
+typedef unsigned short  jchar;
+typedef short           jshort;
+typedef float           jfloat;
+typedef double          jdouble;
+typedef jint            jsize;</pre>
+</div>
+<div>
+<br />
+Write methods which return int long byte etc...<br />
+<br /></div>
+<div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-zRrz8R_G_Ps/XRHmjvvZ1eI/AAAAAAAABOo/7k1GvbeATE47TPlvgS-KRXQ1bMSoK15YwCLcBGAs/s1600/Step%2B11.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="563" data-original-width="1600" height="224" src="https://1.bp.blogspot.com/-zRrz8R_G_Ps/XRHmjvvZ1eI/AAAAAAAABOo/7k1GvbeATE47TPlvgS-KRXQ1bMSoK15YwCLcBGAs/s640/Step%2B11.PNG" width="640" /></a></div>
+<br /></div>
+<div>
+<br /></div>
+<div>
+Implement those methods in native-lib.cpp as shown below<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-6_C6JmezgPk/XRHm9nrjKiI/AAAAAAAABOw/Pb9WcfHrPx8dca7CljP3SsBKgOFGchIbgCLcBGAs/s1600/Step%2B12.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="640" data-original-width="1486" height="274" src="https://1.bp.blogspot.com/-6_C6JmezgPk/XRHm9nrjKiI/AAAAAAAABOw/Pb9WcfHrPx8dca7CljP3SsBKgOFGchIbgCLcBGAs/s640/Step%2B12.PNG" width="640" /></a></div>
+<br />
+things need to take care<br />
+<br />
+in Java file your method declaration must be in following syntax<br />
+<br />
+<pre style="background-color: #2b2b2b; color: #a9b7c6; font-family: 'Courier New'; font-size: 13.5pt;"><span style="color: #cc7832; font-size: 13.5pt;">public native ReturnType methodName(Parameters if any);</span></pre>
+</div>
+<div>
+<br /></div>
+<div>
+in CPP file your declared method must begin with syntax Considering you java class (MainActivity in my case) is located in package com.sugat.hellondk , this class has native declared methods<br />
+<pre>
+
+</pre>
+<pre style="background-color: #2b2b2b; color: #a9b7c6; font-family: 'Courier New'; font-size: 13.5pt;"><pre style="font-family: &quot;Courier New&quot;; font-size: 13.5pt;"><span style="color: #cc7832; font-weight: bold;">extern </span><span style="color: #6a8759;">"C" </span><span style="color: #908b25;">JNIEXPORT </span><span style="color: #b9bcd1;">RETURNTYPE_JNI </span><span style="color: #908b25;">JNICALL</span></pre>
+</pre>
+<pre style="background-color: #2b2b2b; color: #a9b7c6; font-family: 'Courier New'; font-size: 13.5pt;">Java_com_sugat_hellondk_MainActivity_MethodName</pre>
+<br />
+<br />
+Lets try for two parameter method<br />
+<br />
+<pre style="background-color: #2b2b2b; color: #a9b7c6; font-family: 'Courier New'; font-size: 13.5pt;"><span style="color: #cc7832;">Java: public native int </span><span style="color: #ffc66d;">sumOfTwoInt</span>(<span style="color: #cc7832;">int </span>i<span style="color: #cc7832;">,int </span>j)<span style="color: #cc7832;">;</span></pre>
+<br />
+<pre style="background-color: #2b2b2b; color: #a9b7c6; font-family: 'Courier New'; font-size: 13.5pt;"><span style="color: #ffc66d;">CPP: Java_com_sugat_hellondk_MainActivity_sumOfTwoInt</span></pre>
+<pre style="background-color: #2b2b2b; color: #a9b7c6; font-family: 'Courier New'; font-size: 13.5pt;">Paramters: (<span style="color: #b9bcd1;">JNIEnv </span>*env<span style="color: #cc7832;">, </span><span style="color: #b9bcd1;">jobject </span>instance<span style="color: #cc7832;">, </span><span style="color: #b9bcd1;">jint </span>i<span style="color: #cc7832;">, </span><span style="color: #b9bcd1;">jint </span>j)</pre>
+<br />
+first two parameters are must JNIENV and jobject.<br />
+<br />
+JNIENV *env is for accessing JNI environment interface<br />
+jobject instance is for referencing this object<br />
+<br />
+Okay hope its enough for basic of JNI calling and implementing lets run our app and check all this are working correctly.<br />
+<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://1.bp.blogspot.com/-Xa1Ea1eGbf0/XRHvV540yTI/AAAAAAAABPE/Mqzvotcj8cYfkHEwpzKENTpZjxJuZTUogCLcBGAs/s1600/Step%2B13.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="592" data-original-width="333" height="640" src="https://1.bp.blogspot.com/-Xa1Ea1eGbf0/XRHvV540yTI/AAAAAAAABPE/Mqzvotcj8cYfkHEwpzKENTpZjxJuZTUogCLcBGAs/s640/Step%2B13.PNG" width="360" /></a></div>
+<br />
+<br />
+<br />
+<br />
+<b><span style="font-size: large;">4. First OpenGL ES 3.2 Blue screen window&nbsp;</span></b><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></div>
+</div>
+</div>
